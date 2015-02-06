@@ -2,7 +2,7 @@
 
 Tri Panel Layout is a responsive 1 page website with 3 paths.
 
-<img src="http://dojo.codenorris.com/k/images/TriPanelLayout1.jpg"/>
+<img src='http://dojo.codenorris.com/k/images/TriPanelLayout1.jpg'/>
 
 A demo can be found here:
 
