@@ -1,0 +1,497 @@
+html, body {
+	height: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #d5dddf;
+	color: #5e6364;
+}
+
+/* LEVEL 1 */
+
+.twd_panelContainer {
+	top: 0;
+	font-family: 'Open Sans', sans-serif;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index:1;
+	position:relative;
+}
+.twd_panelContainer.slideUp {
+   top: -100% !important;
+	transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+}
+.twd_panelContainer.slideDown {
+   top: 0 !important;
+	transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+}
+/* PANELS */
+#twd_leftPanel {
+	width: 33%;
+	left: 0;
+	background: url(images/left.jpg) no-repeat left top fixed;
+}
+#twd_centerPanel {
+	width: 34%;
+	left: 33%;
+	background: url(images/center.jpg) no-repeat center top fixed;
+}
+#twd_rightPanel {
+	width: 33%;
+	right: 0;
+	background: url(images/right.jpg) no-repeat right top fixed;
+}
+#twd_leftPanel, #twd_centerPanel, #twd_rightPanel {
+	height: 100%;
+	position: absolute;
+	display: table;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+@media only screen and (max-width: 768px) {
+#twd_leftPanel, #twd_centerPanel, #twd_rightPanel {
+	width: 100%;
+	left: 0;
+	right: 0;
+}
+#twd_leftPanel {
+	height: 33%;
+	top: 0;
+}
+#twd_centerPanel {
+	height: 34%;
+	top: 33%;
+}
+#twd_rightPanel {
+	height: 33%;
+	bottom: 0;
+}
+}
+/* PANEL TITLES & CLICKABLE OVERLAYS */
+.twd_leftTitle, .twd_centerTitle, .twd_rightTitle, .twd_leftPanelOverlay, .twd_centerPanelOverlay, .twd_rightPanelOverlay {
+	display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;              /* OLD - Firefox 19- */
+	display: -ms-flexbox;           /* IE 10 */
+	display: -webkit-flex;          /* NEW - Chrome */
+	display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	position: absolute;
+	height: 100%;
+	cursor: pointer;
+	z-index: 10;
+}
+.twd_leftTitle, .twd_leftPanelOverlay {
+	width: 33%;
+	left: 0;
+}
+.twd_centerTitle, .twd_centerPanelOverlay {
+	width: 34%;
+	left: 33%;
+}
+.twd_rightTitle, .twd_rightPanelOverlay {
+	width: 33%;
+	right: 0;
+}
+.twd_leftTitle h2, .twd_centerTitle h2, .twd_rightTitle h2 {
+	width: 100%;
+	color: #fff;
+	padding: 0;
+	margin: 0;
+	font-weight: 800;
+}
+.twd_ie .twd_leftTitle, .twd_ie .twd_centerTitle, .twd_ie .twd_rightTitle { /* IE 9 and below */
+	display: table;
+}
+@media only screen and (max-width: 768px) {
+.twd_leftTitle, .twd_centerTitle, .twd_rightTitle, .twd_leftPanelOverlay, .twd_centerPanelOverlay, .twd_rightPanelOverlay {
+	width: 100%;
+	left: 0;
+	right: 0;
+}
+.twd_leftTitle, .twd_leftPanelOverlay {
+	height: 33%;
+	top: 0;
+}
+.twd_centerTitle, .twd_centerPanelOverlay {
+	height: 34%;
+	top: 33%;
+}
+.twd_rightTitle, .twd_rightPanelOverlay {
+	height: 33%;
+	bottom: 0;
+}
+}
+/* PANEL CONTENT */
+/* close */
+.twd_closeLeftPanel, .twd_closeCenterPanel, .twd_closeRightPanel {
+	display: none;
+	z-index: 40;
+	cursor: pointer;
+	background-image: url(images/close.png);
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 50px;
+	height: 50px;
+	margin: 10px 10px 0 0;
+}
+.twd_closeLeftPanel:hover, .twd_closeCenterPanel:hover, .twd_closeRightPanel:hover {
+	opacity: .7;
+}
+/* down */
+.twd_leftDown, .twd_centerDown, .twd_rightDown {
+	display: none;
+	z-index: 40;
+	position: fixed;
+	bottom: 20px;
+	text-align: center;
+	width: 100%;
+	height: 75px;
+	cursor: pointer;
+}
+.twd_leftDown:hover, .twd_centerDown:hover, .twd_rightDown:hover {
+	opacity: .7;
+}
+/*text*/
+.twd_leftText, .twd_centerText, .twd_rightText {
+	position: relative;
+	margin: auto;
+	display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;              /* OLD - Firefox 19- */
+	display: -ms-flexbox;           /* IE 10 */
+	display: -webkit-flex;          /* NEW - Chrome */
+	display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+.twd_leftText p, .twd_centerText p, .twd_rightText p {
+	width: 60%;
+	margin: auto;
+	z-index: 40;
+	color: #fff;
+	text-align: center;
+	display: none;
+	text-transform: uppercase;
+}
+@media only screen and (max-width: 768px) {
+.twd_leftText p, .twd_centerText p, .twd_rightText p {
+	width: 80%;
+}
+}
+ @media only screen and (max-width: 480px) {
+.twd_leftText p, .twd_centerText p, .twd_rightText p {
+	width: 90%;
+}
+}
+/* ALIGNMENT */
+.twd_centered {
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	text-align: center!important;
+}
+.twd_ie .twd_centered { /* IE 9 and below */
+	display: table-cell;
+	vertical-align: middle;
+}
+/* PANEL ANIMATIONS */
+.expandPanel {
+	z-index: 10;
+	animation-name: expandPanel;
+	-webkit-animation-name: expandPanel;
+	animation-duration: .5s;
+	-webkit-animation-duration: .5s;
+	animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+	animation-fill-mode: forwards;
+}
+@keyframes expandPanel {
+0% {
+width: 33%;
+}
+100% {
+width: 100%;
+}
+}
+@-webkit-keyframes expandPanel {
+0% {
+width: 33%;
+}
+100% {
+width: 100%;
+}
+}
+@media only screen and (max-width: 768px) {
+@keyframes expandPanel {
+0% {
+height: 33%;
+}
+100% {
+height: 100%;
+}
+}
+@-webkit-keyframes expandPanel {
+0% {
+height: 33%;
+}
+100% {
+height: 100%;
+}
+}
+}
+.expandCenterPanel {
+	z-index: 10;
+	animation-name: expandCenterPanel;
+	-webkit-animation-name: expandCenterPanel;
+	animation-duration: .5s;
+	-webkit-animation-duration: .5s;
+	animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+	animation-fill-mode: forwards;
+}
+@keyframes expandCenterPanel {
+ 0% {
+width: 34%;
+left:33%;
+}
+ 100% {
+width: 100%;
+left:0;
+}
+}
+@-webkit-keyframes expandCenterPanel {
+ 0% {
+width: 34%;
+left:33%;
+}
+ 100% {
+width: 100%;
+left:0;
+}
+}
+ @media only screen and (max-width: 768px) {
+@keyframes expandCenterPanel {
+0% {
+height: 34%;
+}
+100% {
+height: 100%;
+top:0;
+}
+}
+@-webkit-keyframes expandCenterPanel {
+0% {
+height: 34%;
+}
+100% {
+height: 100%;
+top:0;
+}
+}
+}
+.contractPanel {
+	animation-name: contractPanel;
+	-webkit-animation-name: contractPanel;
+	animation-duration: .5s;
+	-webkit-animation-duration: .5s;
+	animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+	animation-fill-mode: forwards;
+}
+@keyframes contractPanel {
+ 0% {
+width: 100%;
+}
+ 100% {
+width: 33%;
+}
+}
+@-webkit-keyframes contractPanel {
+ 0% {
+width: 100%;
+}
+ 100% {
+width: 33%;
+}
+}
+ @media only screen and (max-width: 768px) {
+@keyframes contractPanel {
+ 0% {
+height: 100%;
+}
+ 100% {
+height: 33%;
+}
+}
+@-webkit-keyframes contractPanel {
+ 0% {
+height: 100%;
+}
+ 100% {
+height: 33%;
+}
+}
+}
+.contractCenterPanel {
+	animation-name: contractCenterPanel;
+	-webkit-animation-name: contractCenterPanel;
+	animation-duration: .5s;
+	-webkit-animation-duration: .5s;
+	animation-timing-function: linear;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+	animation-fill-mode: forwards;
+}
+@keyframes contractCenterPanel {
+ 0% {
+width: 100%;
+left:0;
+}
+ 100% {
+width: 34%;
+left:33%;
+}
+}
+@-webkit-keyframes contractCenterPanel {
+ 0% {
+width: 100%;
+left:0;
+}
+ 100% {
+width: 34%;
+left:33%;
+}
+}
+ @media only screen and (max-width: 768px) {
+@keyframes contractCenterPanel {
+ 0% {
+height: 100%;
+top: 0;
+}
+ 100% {
+height: 34%;
+top: 33%;
+}
+}
+@-webkit-keyframes contractCenterPanel {
+ 0% {
+height: 100%;
+top: 0;
+}
+ 100% {
+height: 34%;
+top: 33%;
+}
+}
+}
+
+/*
+fadeInUpBig effect from Animate.css - http://daneden.me/animate
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+
+Copyright (c) 2014 Daniel Eden
+*/
+@-webkit-keyframes fadeInUpBig {
+ 0% {
+ opacity: 0;
+ -webkit-transform: translate3d(0, 2000px, 0);
+ transform: translate3d(0, 2000px, 0);
+}
+ 100% {
+ opacity: 1;
+ -webkit-transform: none;
+ transform: none;
+}
+}
+ @keyframes fadeInUpBig {
+ 0% {
+ opacity: 0;
+ -webkit-transform: translate3d(0, 2000px, 0);
+ transform: translate3d(0, 2000px, 0);
+}
+ 100% {
+ opacity: 1;
+ -webkit-transform: none;
+ transform: none;
+}
+}
+.fadeInUpBig {
+	-webkit-animation-name: fadeInUpBig;
+	animation-name: fadeInUpBig;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+}
+
+/***************************************/
+
+/* LEVEL 2 */
+
+/* up */
+.twd_leftUp, .twd_centerUp, .twd_rightUp {
+	width: 75px; 
+	margin: 20px auto;
+	height: 75px;
+	cursor: pointer;
+}
+.twd_leftUp:hover, .twd_centerUp:hover, .twd_rightUp:hover {
+	opacity: .7;
+}
+
+/* LEFT, CENTER & RIGHT CONTENT SECTIONS */
+.twd_leftSection, .twd_rightSection, .twd_centerSection {
+	display:none; position:absolute;
+	width:100%; min-height:100%;
+}
+.twd_leftSection.slideUp, .twd_rightSection.slideUp, .twd_centerSection.slideUp {
+   top: 0 !important;
+	transition: all 0.5s linear;
+	-webkit-transition: all 0.5s linear;
+	-moz-transition: all 0.5s linear;
+	-o-transition: all 0.5s linear;
+	-ms-transition: all 0.5s linear;
+}
+.twd_leftSection h2, .twd_rightSection h2, .twd_centerSection h2 {
+	font-size:72px;
+	color: #5e6364;
+	padding: 0;
+	margin: 20px;
+	font-weight: 800; text-align:center;
+}
+.twd_leftSection h3, .twd_rightSection h3, .twd_centerSection h3 {
+	font-size:30px;
+	color: #6db0c3;
+	padding: 0;
+	margin: 20px;
+	font-weight: 800; text-align:center;
+}
+.twd_leftSection p, .twd_rightSection p, .twd_centerSection p {
+	padding: 0;
+	font-size:20px;
+	margin: 20px;
+	text-align:left;
+}
